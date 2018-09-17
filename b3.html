@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
   <meta charset="utf-8">
@@ -7,241 +7,206 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title></title>
 
-  <!-- Bootstrap -->
+  <style media="screen">
+    .header {
+      height: 220px;
+      background: #000 url("business-services-run-smoothly.jpg") -840px -224px
+    }
+
+    .header p {
+      color: #fff;
+      margin-left: 100px;
+      font-size: 32px
+    }
+
+    table tr:first-child td {
+      color: #696969;
+      background: #E3E3E3
+    }
+
+    .jumbotron p {
+      margin-left: 161px;
+    }
+  </style>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
-  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular.min.js"></script>
 </head>
 
-<body ng-app="businessApp">
-  <div class="container" ng-controller="thingController">
-    <h2>Business Application</h2>
-    <h3>Departments</h3>
-    <div class="alert alert-info" ng-show="!deptLength.length">No more departments!</div>
-    <table class="table table-stipped" ng-show="deptLength.length">
-      <thead>
-        <tr>
-          <td>
-            <input type="checkbox" name="" value="">
-          </td>
-          <td>
-            Department
-          </td>
-          <td>
-            Budget
-          </td>
-          <td>
-            Actions
-          </td>
-          <td>
-            Details
-          </td>
-        </tr>
-        <tbody>
-          <tr ng-repeat="dept in depts" ng-if="!dept.Reorg">
-            <td><input type="checkbox" name="" value=""></td>
-            <td>{{dept.Department}}</td>
-            <td>{{dept.Budget}}</td>
-            <td><a href="" class="edit" data-toggle="modal" data-target="#editModal" ng-click="edit($index)">Edit</a> | <a href="" class="reorg" ng-click="reorg($index)">Move</a> </td>
-            <td>
-              <button class="btn btn-primary btn-xs" data-toggle="modal" data-target="#moreinfo" ng-click="passItemToModal($index)">More Info</button>
-            </td>
-          </tr>
-        </tbody>
-      </thead>
-    </table>
+<body>
+  <div class="container-fluid header" role="banner">
+    <div class="jumbotron" style="background:transparent;color:#fff;margin:0">
+      <h1>Widgets R Us</h1>
+      <p>The best widgets really, mostly.</p>
+    </div>
+  </div>
 
-    <div ng-show="reorgLength.length">
-      <h3>Move candidates</h3>
-      <table class="table table-stipped">
-        <thead>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+        <a class="navbar-brand" href="#">Widgets R US</a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li><a href="#">About</a></li>
+          <li class="active"><a href="#">Catalog</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Contact us <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Email</a></li>
+              <li><a href="#">Phone</a></li>
+              <li><a href="#"></a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="#">Contact form</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="#">Snail mail</a></li>
+            </ul>
+          </li>
+        </ul>
+        <form class="navbar-form navbar-left">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search">
+          </div>
+          <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#">Link</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Action</a></li>
+              <li><a href="#">Another action</a></li>
+              <li><a href="#">Something else here</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="#">Separated link</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+  </nav>
+  <div class="container-fluid" role="main">
+    <div class="row">
+      <div class="col-lg-2 col-md-2">
+        <ul class="nav nav-pills nav-stacked">
+          <div class="">
+          </div>
+          <li role="presentation" class="active"><a href="#">On sale</a></li>
+          <li role="presentation"><a href="#">Household</a></li>
+          <li role="presentation"><a href="#">Industrial</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-10 col-md-10">
+
+        <table class="table">
+          <tr>
+            <td>Widget</td>
+            <td>Price</td>
+            <td>Use</td>
+            <td>Weight</td>
+            <td></td>
+          </tr>
           <tr>
             <td>
-              <input type="checkbox" name="" value="">
+              Proink
             </td>
             <td>
-              Department
+              $2.00
             </td>
             <td>
-              Budget
+              Drains
             </td>
             <td>
-              Actions
+              2oz
             </td>
-            <td>
-              Details
-            </td>
+            <td><a href="">Buy it</a></td>
           </tr>
-          <tbody>
-            <tr ng-repeat="dept in depts" ng-if="dept.Reorg">
-              <td><input type="checkbox" name="" value=""></td>
-              <td>{{dept.Department}}</td>
-              <td>{{dept.Budget}}</td>
-              <td><a href="" class="reorg" ng-click="unreorg($index)">Un-move</a> </td>
-              <td>
-                <button class="btn btn-primary btn-xs" data-toggle="modal" data-target="#moreinfo" ng-click="passItemToModal($index)">More Info</button>
-              </td>
-            </tr>
-          </tbody>
-        </thead>
-      </table>
-    </div>
-
-
-    <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalTitle" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            <h4 class="modal-title" id="editModalTitle">Editing: {{selectedItemEdit.Department}}</h4>
-          </div>
-          <div class="modal-body">
-            <div class="form">
-              <div class="form-group">
-                <label for="dept">Department Name</label>
-                <input type="text" class="form-control" id="dept" aria-describedby="deptHelp" placeholder="Department name" ng-model="selectedItemEdit.Department">
-                <small id="deptHelp" class="form-text text-muted">Pick something sensible, please.</small>
-              </div>
-              <div class="form-group">
-                <label for="budg">Department Budget</label>
-                <input type="text" class="form-control" id="budg" aria-describedby="budgHelp" placeholder="Enter any number" ng-model="selectedItemEdit.Budget">
-                <small id="budgHelp" class="form-text text-muted">Pick something sensible, please.</small>
-              </div>
-              <div class="form-group">
-                <label for="col">Department Color</label>
-                <input type="text" class="form-control" id="col" aria-describedby="colHelp" placeholder="Enter any color" ng-model="selectedItemEdit.Color">
-                <small id="colHelp" class="form-text text-muted"> Go crazy</small>
-              </div>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="saveChanges()">Submit</button>
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          </div>
-        </div>
+          <tr>
+            <td>Fiffle</td>
+            <td>$1.00</td>
+            <td>Frisbees on roofs</td>
+            <td>2lb</td>
+            <td><a href="">Buy it</a></td>
+          </tr>
+          <tr>
+            <td>Snackle</td>
+            <td>$3.00</td>
+            <td>Pets</td>
+            <td>40z</td>
+            <td><a href="">Buy it</a></td>
+          </tr>
+          <tr>
+            <td>Bingle</td>
+            <td>$45.00</td>
+            <td>Noise attenuation</td>
+            <td>200lb</td>
+            <td><a href="">Buy it</a></td>
+          </tr>
+          <tr>
+            <td>Cronk</td>
+            <td>$30.50</td>
+            <td>Best seller, we have no idea why</td>
+            <td>50lb</td>
+            <td><a href="">Buy it</a></td>
+          </tr>
+        </table>
       </div>
     </div>
-
-
-    <div class="modal fade" id="moreinfo" tabindex="-1" role="dialog" aria-labelledby="infoModalTitle" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            <h4 class="modal-title" id="infoModalTitle">{{infoSelectedItem.Department}}</h4>
-          </div>
-          <div class="modal-body">
-            <p>Budget: {{infoSelectedItem.Budget}}</p>
-            <p>Color: {{infoSelectedItem.Color}}</p>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          </div>
+    <div class="form container-fluid">
+      <div class="row">
+        <div class="col-lg-2 col-md-2">
         </div>
+      <div class="col-lg-10 col-md-10">
+<p style="font-weight:bold;font-size:24px">Sign up for updates</p>
+        <form>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Verify Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+          </div>
+
+          <div class="form-group">
+            <label for="exampleInputFile">Send us your photo</label>
+            <input type="file" id="exampleInputFile">
+            <p class="help-block">Some description of norms on photos.</p>
+          </div>
+          <div class="checkbox">
+            <label>
+              <input type="checkbox"> Promotions ok?
+            </label>
+          </div>
+          <div class="checkbox">
+            <label>
+              <input type="checkbox"> Solicitations ok?
+            </label>
+          </div>
+          <button type="submit" class="btn btn-default">Submit</button>
+        </form>
       </div>
     </div>
   </div>
-  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <!-- Include all compiled plugins (below), or include individual files as needed -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore-min.js"></script>
-  <script type="text/javascript">
-    var businessApp = angular.module('businessApp', []);
-
-    businessApp.controller('thingController', ['$scope', function($scope) {
-      $scope.deptLength = [0, 1];
-      $scope.depts = [{
-        "Department": "Adv Research Comp Tech Srv",
-        "Budget": "$350,000",
-        "Color": "Red",
-        "Reorg": false
-      }, {
-        "Department": "Infra Net",
-        "Budget": "$350,000",
-        "Color": "Blue",
-        "Reorg": false
-      }, {
-        "Department": "Strategy and Planning",
-        "Budget": "$350,000",
-        "Color": "Green",
-        "Reorg": false
-      }, {
-        "Department": "Central Administration",
-        "Budget": "$350,000",
-        "Color": "Grey",
-        "Reorg": false
-      }, {
-        "Department": "Enterprise Application Services",
-        "Budget": "$350,000",
-        "Color": "Yellow",
-        "Reorg": false
-      }, {
-        "Department": "Support Services",
-        "Budget": "$350,000",
-        "Color": "Black",
-        "Reorg": false
-      }, {
-        "Department": "Teaching and Learning",
-        "Budget": "$350,000",
-        "Color": "Pink",
-        "Reorg": false
-      }, {
-        "Department": "Infra & Info Assurance",
-        "Budget": "$350,000",
-        "Color": "Orange",
-        "Reorg": false
-      }, {
-        "Department": "Information Quest",
-        "Budget": "$350,000",
-        "Color": "Transparent",
-        "Reorg": false
-      }];
-      $scope.passItemToModal = function(index) {
-        $scope.infoSelectedItem = $scope.depts[index];
-        console.log($scope.infoSelectedItem);
-      }
-
-      $scope.passItemToModalEdit = function(index) {
-        $scope.selectedItemIndex = index;
-        $scope.selectedItemEdit = $scope.depts[index]
-      }
-      $scope.reorg = function(index) {
-        $scope.depts[index].Reorg = true;
-        $scope.reorgLength = _.where($scope.depts, {
-          Reorg: true
-        });
-        $scope.deptLength = _.where($scope.depts, {
-          Reorg: false
-        });
-      }
-      $scope.unreorg = function(index) {
-        $scope.depts[index].Reorg = false;
-        $scope.reorgLength = _.where($scope.depts, {
-          Reorg: true
-        });
-        $scope.deptLength = _.where($scope.depts, {
-          Reorg: false
-        });
-      }
-      $scope.edit = function(index) {
-        $scope.passItemToModalEdit(index);
-      }
-      $scope.saveChanges = function() {
-        $scope.depts[$scope.selectedItemIndex].Department = $scope.selectedItemEdit.Department;
-        $scope.depts[$scope.selectedItemIndex].Color = $scope.selectedItemEdit.Color;
-        $scope.depts[$scope.selectedItemIndex].Budget = $scope.selectedItemEdit.Budget;
-      }
-    }]);
-  </script>
-
 </body>
 
 </html>
