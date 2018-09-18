@@ -8,6 +8,9 @@
   <title></title>
 
   <style media="screen">
+    .cb label {
+      font-weight: normal;
+    }
     .header {
       height: 220px;
       background: #000 url("images/business-services-run-smoothly.jpg") -840px -224px
@@ -122,9 +125,7 @@
             <td></td>
           </tr>
           <tr>
-            <td>
-              Proink
-            </td>
+            <td class="title">Proink</td>
             <td>
               $2.00
             </td>
@@ -134,35 +135,35 @@
             <td>
               2oz
             </td>
-            <td><a href="">Buy it</a></td>
+            <td><a class="buy" href="">Buy it</a></td>
           </tr>
           <tr>
-            <td>Fiffle</td>
+            <td class="title">Fiffle</td>
             <td>$1.00</td>
             <td>Frisbees on roofs</td>
             <td>2lb</td>
-            <td><a href="">Buy it</a></td>
+            <td><a class="buy" href="">Buy it</a></td>
           </tr>
           <tr>
-            <td>Snackle</td>
+            <td class="title">Snackle</td>
             <td>$3.00</td>
             <td>Pets</td>
             <td>40z</td>
-            <td><a href="">Buy it</a></td>
+            <td><a class="buy" href="">Buy it</a></td>
           </tr>
           <tr>
-            <td>Bingle</td>
+            <td class="title">Bingle</td>
             <td>$45.00</td>
             <td>Noise attenuation</td>
             <td>200lb</td>
-            <td><a href="">Buy it</a></td>
+            <td><a class="buy" href="">Buy it</a></td>
           </tr>
           <tr>
-            <td>Cronk</td>
+            <td class="title">Cronk</td>
             <td>$30.50</td>
             <td>Best seller, we have no idea why</td>
             <td>50lb</td>
-            <td><a href="">Buy it</a></td>
+            <td><a class="buy" href="">Buy it</a></td>
           </tr>
         </table>
       </div>
@@ -188,20 +189,19 @@
               <input type="file" id="exampleInputFile">
               <p class="help-block">Some description of norms on photos.</p>
             </div>
-            <div class="checkbox">
-              <label>
-              <input type="checkbox"> Promotions ok?
-            </label>
+            <div class="cb">
+              <input type="checkbox" id="c1">
+              <label for="c1"> Promotions ok?</label>
             </div>
-            <div class="checkbox">
-              <label>
-              <input type="checkbox"> Solicitations ok?
-            </label>
+            <div class="cb">
+              <input type="checkbox">
+              <label  for="c1">  Solicitations ok?</label>
             </div>
+<br>
             <button type="submit" class="btn btn-default">Submit</button>
           </form>
 
-
+<br>
           <div class="alert alert-warning alert-dismissible" role="alert">
   <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
   <strong>Rest easy!</strong> We will only use this information for our own purposes.
@@ -213,6 +213,11 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+      $('.buy').on('click', function(){
+        alert('You now own some ' + $(this).closest('tr').find('td.title').text() + ' of your own!')
+      })
+    </script>
 </body>
 
 </html>
