@@ -45,7 +45,7 @@
           </td>
         </tr>
         <tbody>
-          <tr ng-repeat="dept in depts" ng-if="!dept.Reorg">
+          <tr ng-repeat="dept in depts" ng-if="!dept.Reorg" style="background-color:{{dept.Color.toLowerCase()}}  !important">
             <td><input type="checkbox" name="" value=""></td>
             <td>{{dept.Department}}</td>
             <td>{{dept.Budget}}</td>
@@ -80,7 +80,7 @@
             </td>
           </tr>
           <tbody>
-            <tr ng-repeat="dept in depts" ng-if="dept.Reorg">
+            <tr ng-repeat="dept in depts" ng-if="dept.Reorg"  style="background-color:{{dept.Color.toLowerCase()}}  !important">
               <td><input type="checkbox" name="" value=""></td>
               <td>{{dept.Department}}</td>
               <td>{{dept.Budget}}</td>
@@ -116,7 +116,12 @@
               </div>
               <div class="form-group">
                 <label for="col">Department Color</label>
-                <input type="text" class="form-control" id="col" aria-describedby="colHelp" placeholder="Enter any color" ng-model="selectedItemEdit.Color">
+                <select ng-model="selected_color" aria-describedby="colHelp">
+                 <option value="">--- Select an option ---</option>
+                 <option ng-selected= "color === selectedItemEdit.Color" ng-repeat="color in colors"
+                        value="{{color}}">{{color}}
+                </select>
+                <br>
                 <small id="colHelp" class="form-text text-muted"> Go crazy</small>
               </div>
             </div>
@@ -139,7 +144,7 @@
           </div>
           <div class="modal-body">
             <p>Budget: {{infoSelectedItem.Budget}}</p>
-            <p>Color: {{infoSelectedItem.Color}}</p>
+            <p>Color: {{infoSelectedItem.selectedColor}}</p>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -158,52 +163,56 @@
 
     businessApp.controller('thingController', ['$scope', function($scope) {
       $scope.deptLength = [0, 1];
+      $scope.colors =['Pink','LightPink','HotPink','DeepPink','PaleVioletRed','Red colors','LightSalmon','Salmon','DarkSalmon','LightCoral','LimeGreen','Lime','LawnGreen','Chartreuse','GreenYellow','SpringGreen','MediumSpringGreen ','LightGreen','PaleGreen','Aqua','Cyan','LightCyan','PaleTurquoise','Aquamarine','monChiffon','LightGoldenrodYellow ','PapayaWhip','Moccasin','PeachPuff','PaleGoldenrod'];
       $scope.depts = [{
         "Department": "Adv Research Comp Tech Srv",
         "Budget": "$350,000",
-        "Color": "Red",
+        "Color": "White",
         "Reorg": false
       }, {
         "Department": "Infra Net",
         "Budget": "$350,000",
-        "Color": "Blue",
+        "Color": "White",
         "Reorg": false
       }, {
         "Department": "Strategy and Planning",
         "Budget": "$350,000",
-        "Color": "Green",
+        "Color": "White",
         "Reorg": false
       }, {
         "Department": "Central Administration",
         "Budget": "$350,000",
-        "Color": "Grey",
+        "Color": "White",
         "Reorg": false
       }, {
         "Department": "Enterprise Application Services",
         "Budget": "$350,000",
-        "Color": "Yellow",
+        "Color": "White",
         "Reorg": false
       }, {
         "Department": "Support Services",
         "Budget": "$350,000",
-        "Color": "Black",
+        "Color": "White",
         "Reorg": false
       }, {
         "Department": "Teaching and Learning",
         "Budget": "$350,000",
-        "Color": "Pink",
+        "Color": "White",
         "Reorg": false
       }, {
         "Department": "Infra & Info Assurance",
         "Budget": "$350,000",
-        "Color": "Orange",
+        "Color": "White",
         "Reorg": false
       }, {
         "Department": "Information Quest",
         "Budget": "$350,000",
-        "Color": "Transparent",
+        "Color": "White",
         "Reorg": false
       }];
+
+
+
       $scope.passItemToModal = function(index) {
         $scope.infoSelectedItem = $scope.depts[index];
         console.log($scope.infoSelectedItem);
@@ -236,7 +245,7 @@
       }
       $scope.saveChanges = function() {
         $scope.depts[$scope.selectedItemIndex].Department = $scope.selectedItemEdit.Department;
-        $scope.depts[$scope.selectedItemIndex].Color = $scope.selectedItemEdit.Color;
+        $scope.depts[$scope.selectedItemIndex].Color = $scope.selected_color;
         $scope.depts[$scope.selectedItemIndex].Budget = $scope.selectedItemEdit.Budget;
       }
     }]);
