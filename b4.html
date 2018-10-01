@@ -45,10 +45,10 @@
           </td>
         </tr>
         <tbody>
-          <tr ng-repeat="dept in depts" ng-if="!dept.Reorg" style="background-color:{{dept.Color.toLowerCase()}}  !important">
+          <tr ng-repeat="dept in depts" ng-if="!dept.Reorg">
             <td><input type="checkbox" name="" value=""></td>
             <td>{{dept.Department}}</td>
-            <td>{{dept.Budget}}</td>
+            <td   style="background-color:{{dept.Color.toLowerCase()}}  !important">{{dept.Budget}}</td>
             <td><a href="" class="edit" data-toggle="modal" data-target="#editModal" ng-click="edit($index)">Edit</a> | <a href="" class="reorg" ng-click="reorg($index)">Move</a> </td>
             <td>
               <button class="btn btn-primary btn-xs" data-toggle="modal" data-target="#moreinfo" ng-click="passItemToModal($index)">More Info</button>
@@ -80,10 +80,10 @@
             </td>
           </tr>
           <tbody>
-            <tr ng-repeat="dept in depts" ng-if="dept.Reorg"  style="background-color:{{dept.Color.toLowerCase()}}  !important">
+            <tr ng-repeat="dept in depts" ng-if="dept.Reorg">
               <td><input type="checkbox" name="" value=""></td>
               <td>{{dept.Department}}</td>
-              <td>{{dept.Budget}}</td>
+              <td   style="background-color:{{dept.Color.toLowerCase()}}  !important">{{dept.Budget}}</td>
               <td><a href="" class="reorg" ng-click="unreorg($index)">Un-move</a> </td>
               <td>
                 <button class="btn btn-primary btn-xs" data-toggle="modal" data-target="#moreinfo" ng-click="passItemToModal($index)">More Info</button>
@@ -116,7 +116,7 @@
               </div>
               <div class="form-group">
                 <label for="col">Department Color</label>
-                <select ng-model="selected_color" aria-describedby="colHelp">
+                <select class="form-control" ng-model="selected_color" aria-describedby="colHelp" id="col">
                  <option value="">--- Select an option ---</option>
                  <option ng-selected= "color === selectedItemEdit.Color" ng-repeat="color in colors"
                         value="{{color}}">{{color}}
@@ -144,7 +144,7 @@
           </div>
           <div class="modal-body">
             <p>Budget: {{infoSelectedItem.Budget}}</p>
-            <p>Color: {{infoSelectedItem.selectedColor}}</p>
+            <p style="background-color:{{infoSelectedItem.Color.toLowerCase()}}  !important">Color: {{infoSelectedItem.Color}}</p>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
