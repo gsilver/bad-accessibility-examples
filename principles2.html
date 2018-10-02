@@ -155,8 +155,10 @@
         span.innerHTML = counter;
       }
       if (counter === 0) {
-          $('.alert').addClass('alert-danger').attr('role','alert').append(' <strong> You ran out of time!</strong>');
-          $('#instructions').fadeOut()
+          var checked = $('input[type="checkbox"]:checked').length;
+          var checkboxes =  $('input[type="checkbox"]').length;
+          $('.alert').addClass('alert-danger').attr('role','alert').append(' <strong> You ran out of time! You got ' + checked + ' out of 10 lines!</strong>');
+          $('#instructions').fadeOut();
           $('input').attr('disabled','disabled');
           clearInterval(counter);
       }
