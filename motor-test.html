@@ -30,6 +30,10 @@
 
 <body>
   <div class="container">
+    <br>
+    <button type="button" class="btn btn-success pull-right" id="fixIssues" >
+      Fix focus issues
+    </button>
 
 
     <h1>Motor dissability test</h1>
@@ -47,7 +51,7 @@
 
       <p>In lectus est, blandit id tellus venenatis, tristique fringilla lorem. Vestibulum ac enim at ligula vulputate maximus eu a risus. Donec convallis risus ut consectetur molestie. Vestibulum nec tincidunt odio. Quisque vel arcu ante. Vivamus ac lacinia
         tellus, eu eleifend orci. Vivamus nunc dolor, viverra eu massa sed, sodales dictum est. Pellentesque auctor cursus purus, nec posuere leo fermentum sit amet. Pellentesque et laoreet mauris. In at nisi erat. Morbi gravida luctus ante. Fusce mollis
-        semper vulputate. Sed luctus viverra orci ut auctor. Duis quis nisi vel erat porttitor finibus. Sed a magna arcu. Ut bibendum nisl at felis scelerisque, in faucibus nisi laoreet. <sup><a href="#" class="btn-no-focus">[2]</a></sup></p>  
+        semper vulputate. Sed luctus viverra orci ut auctor. Duis quis nisi vel erat porttitor finibus. Sed a magna arcu. Ut bibendum nisl at felis scelerisque, in faucibus nisi laoreet. <sup><a href="#" class="btn-no-focus">[2]</a></sup></p>
     </ul>
 
     <div class="form">
@@ -81,8 +85,10 @@
       $('#target-name').text($(this).text() || $(this).parent('div').find('label').text());
       $('#alert-focus').fadeIn()
     })
+    $('#fixIssues').on('click', function(){
+      $('.btn-no-focus').removeClass('btn-no-focus');
+    })
   </script>
-
 
 </body>
 
